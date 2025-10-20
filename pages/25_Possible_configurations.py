@@ -382,16 +382,19 @@ def get_dict_sitecode_sitename(sites_df):
     return dic
 
 # Function to get dictionary mapping site codes to site postcodes
+st.cache_data()
 def get_dict_sitecode_postcode(sites_df):
     dic = dict(zip(sites_df.Provider_Site_Code, sites_df.Postcode_Trim))
     return dic
 
 # Function to get dictionary mapping site names to site codes
+st.cache_data()
 def get_dict_sitename_sitecode(sites_df):
     dic = dict(zip(sites_df.Provider_Site_Name, sites_df.Provider_Site_Code))
     return dic
 
 # Function to get dictionary mapping site postcodes to site codes
+st.cache_data()
 def get_dict_postcode_sitecode(sites_df):
     dic = dict(zip(sites_df.Postcode_Trim, sites_df.Provider_Site_Code))
     return dic
@@ -561,6 +564,7 @@ def get_km_all_journeys_df(km_actuals_time_dist_df, km_lsoa_gdf):
 # Function to return a table of activity, showing 24/25 actuals, and for these actuals the closest sites under the 
 # present configuration, and the possible activity if we add new sites
 # Input all_journeys_df is the actuals
+st.cache_data()
 def get_freq_table_actuals(all_journeys_df, sites_orig, sites_new, km_prov_gdf, threshold):
     sites_to_include = sites_orig + sites_new
     dict_sitecode_postcode = get_dict_sitecode_postcode(km_prov_gdf)
@@ -1073,4 +1077,5 @@ st.write(summary_table_df)
 end_full = time.time()
 
 # st.write('Total time to run '+str(round(end_full - start_full,1)) + ' seconds')
+
 
