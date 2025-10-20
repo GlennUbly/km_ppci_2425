@@ -548,7 +548,7 @@ def get_km_actuals_time_dist_df(filename_activity, filename_routino):
 # Function to return all potential journeys for each actual record
 # Input is the km_actuals_time_dist_df dataframe of actual from-to items, 
 # and the km_lsoa_gdf KM Routino table of all potential from/to times and distances for KM patients
-#st.cache_data()
+st.cache_data()
 def get_km_all_journeys_df(km_actuals_time_dist_df, km_lsoa_gdf):
     km_all_journeys_df = pd.merge(km_actuals_time_dist_df,
                                   km_lsoa_gdf,
@@ -792,6 +792,7 @@ st.write("We observe that Kent and Medway ICB ranks 36 out of 42 for PPCI travel
 end_full = time.time()
 
 # st.write('Total time to run '+str(round(end_full - start_full,1)) + ' seconds')
+
 
 
 
