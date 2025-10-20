@@ -563,7 +563,7 @@ def get_km_all_journeys_df(km_actuals_time_dist_df, km_lsoa_gdf):
 
 # Function to return metrics for a given list of candidate sites
 # Input is the DataFrame km_all_journeys_df and a list of potential sites and a threshold value (national median time)
-#st.cache_data()
+st.cache_data()
 def get_metrics_one_config_df(km_all_journeys_df, sites_orig, sites_new, nat_median):
     cols_orig_time = ['time_'+site.lower() for site in sites_orig]
     cols_orig_distance = ['distance_'+site.lower() for site in sites_orig]
@@ -792,6 +792,7 @@ st.write("We observe that Kent and Medway ICB ranks 36 out of 42 for PPCI travel
 end_full = time.time()
 
 # st.write('Total time to run '+str(round(end_full - start_full,1)) + ' seconds')
+
 
 
 
