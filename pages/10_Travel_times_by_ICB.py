@@ -627,7 +627,7 @@ def get_metrics_one_config_df(km_all_journeys_df, sites_orig, sites_new, nat_med
 
 # Function to return a list of possible new pairs of sites to add
 # Input is the list of all possible KM sites, and the list of current sites (to remove from consideration as new)
-#st.cache_data()
+st.cache_data()
 def get_site_pairs(km_site_list, sites_orig) :
     proposed_sites = list(set(km_site_list) - set(sites_orig))
     pairs = list(itertools.product(*[proposed_sites,proposed_sites]))
@@ -641,7 +641,7 @@ def get_site_pairs(km_site_list, sites_orig) :
 
 # Function to return a summary table with all metrics for all configurations using the above get_metrics_one_config_df
 # Input is the km_all_journeys_df, and list of proposed new sites and site pairs, and list of current sites
-#st.cache_data()
+st.cache_data()
 def get_summary_table(km_prov_gdf, km_all_journeys_df, sites_orig, nat_median):
     # Set up DataFrame to record the values for each proposed site/pair
     df_results = pd.DataFrame()
@@ -792,6 +792,7 @@ st.write("We observe that Kent and Medway ICB ranks 36 out of 42 for PPCI travel
 end_full = time.time()
 
 # st.write('Total time to run '+str(round(end_full - start_full,1)) + ' seconds')
+
 
 
 
