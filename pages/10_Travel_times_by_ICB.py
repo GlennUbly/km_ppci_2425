@@ -492,7 +492,7 @@ def plot_lsoa_times_impact_gdf(km_lsoa_gdf, sites_orig, sites_new, threshold):
 # Function to plot the new GDF with the minimum time for the existing and new sites 
 # with colour for each LSOA representing whether the travel time is greater or less than a threshold
 # Input is the LSOA GeoDataFrame with all times, the list of original sites, the list of new sites, and the national median
-#st.cache_data()
+st.cache_data()
 def plot_lsoa_time_threshold_gdf(km_lsoa_gdf, sites_orig, sites_new, threshold):
     sites = [dict_sitecode_sitename[code] for code in sites_new]
     new_min_times_gdf = get_new_min_times_gdf(km_lsoa_gdf, sites_orig, sites_new, threshold)
@@ -792,4 +792,5 @@ st.write("We observe that Kent and Medway ICB ranks 36 out of 42 for PPCI travel
 end_full = time.time()
 
 # st.write('Total time to run '+str(round(end_full - start_full,1)) + ' seconds')
+
 
