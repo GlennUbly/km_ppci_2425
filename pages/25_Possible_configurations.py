@@ -490,7 +490,7 @@ def plot_lsoa_times_impact_gdf(km_lsoa_gdf, sites_orig, sites_new, threshold):
 # Function to plot the new GDF with the minimum time for the existing and new sites 
 # with colour for each LSOA representing whether the travel time is greater or less than a threshold
 # Input is the LSOA GeoDataFrame with all times, the list of original sites, the list of new sites, and the national median
-#st.cache_data()
+st.cache_data()
 def plot_lsoa_time_threshold_gdf(km_lsoa_gdf, sites_orig, sites_new, threshold):
     sites = [dict_sitecode_sitename[code] for code in sites_new]
     new_min_times_gdf = get_new_min_times_gdf(km_lsoa_gdf, sites_orig, sites_new, threshold)
@@ -521,7 +521,7 @@ def plot_lsoa_time_threshold_gdf(km_lsoa_gdf, sites_orig, sites_new, threshold):
 
 # Function to return KM activity from national actuals
 # Input is the national actuals file, and the national Routino output on the actuals
-#st.cache_data()
+st.cache_data()
 def get_km_actuals_time_dist_df(filename_activity, filename_routino):
     # Create df for KM actuals with only from and to columns
     activity_df = pd.read_csv(filename_activity)
@@ -546,7 +546,7 @@ def get_km_actuals_time_dist_df(filename_activity, filename_routino):
 # Function to return all potential journeys for each actual record
 # Input is the km_actuals_time_dist_df dataframe of actual from-to items, 
 # and the km_lsoa_gdf KM Routino table of all potential from/to times and distances for KM patients
-#st.cache_data()
+st.cache_data()
 def get_km_all_journeys_df(km_actuals_time_dist_df, km_lsoa_gdf):
     km_all_journeys_df = pd.merge(km_actuals_time_dist_df,
                                   km_lsoa_gdf,
@@ -613,7 +613,7 @@ def get_freq_table_actuals(all_journeys_df, sites_orig, sites_new, km_prov_gdf, 
 
 # Function to return metrics for a given list of candidate sites
 # Input is the DataFrame km_all_journeys_df and a list of potential sites and a threshold value (national median time)
-#st.cache_data()
+st.cache_data()
 def get_metrics_one_config_df(km_all_journeys_df, sites_orig, sites_new, nat_median):
     cols_orig_time = ['time_'+site.lower() for site in sites_orig]
     cols_orig_distance = ['distance_'+site.lower() for site in sites_orig]
@@ -676,7 +676,7 @@ def get_metrics_one_config_df(km_all_journeys_df, sites_orig, sites_new, nat_med
 
 # Function to return a list of possible new pairs of sites to add
 # Input is the list of all possible KM sites, and the list of current sites (to remove from consideration as new)
-#st.cache_data()
+st.cache_data()
 def get_site_pairs(km_site_list, sites_orig) :
     proposed_sites = list(set(km_site_list) - set(sites_orig))
     pairs = list(itertools.product(*[proposed_sites,proposed_sites]))
@@ -690,7 +690,7 @@ def get_site_pairs(km_site_list, sites_orig) :
 
 # Function to return a summary table with all metrics for all configurations using the above get_metrics_one_config_df
 # Input is the km_all_journeys_df, and list of proposed new sites and site pairs, and list of current sites
-#st.cache_data()
+st.cache_data()
 def get_summary_table(km_prov_gdf, km_all_journeys_df, sites_orig, nat_median):
     # Set up DataFrame to record the values for each proposed site/pair
     df_results = pd.DataFrame()
@@ -1073,3 +1073,4 @@ st.write(summary_table_df)
 end_full = time.time()
 
 # st.write('Total time to run '+str(round(end_full - start_full,1)) + ' seconds')
+
