@@ -731,7 +731,7 @@ st.markdown("We take as our base activity data all spells coded to the  "+
             "Services: PPCI for ST-Elevation Myocardial Infarction in   "+
             "the year 2024/25 in England.")
 
-st.write("Nationally, based on NCDR travel time reference data, we see a mean travel time of "+
+st.write("Nationally, based on Routino travel time reference data, we see a mean travel time of "+
          f"{activity_time_dist_df['time_min'].mean():.0f} minutes "+
          f"and a median of {activity_time_dist_df['time_min'].median():.0f} minutes.")
 
@@ -740,7 +740,7 @@ time_elapsed = time.time()
 # Display summary of traval times
 st.dataframe(activity_time_dist_df.describe([0, 0.25, 0.5, 0.75, 0.95]).round().astype(int))
 
-st.markdown("We map the travel times based on NCDR travel time reference data for the patient "+
+st.markdown("We map the travel times based on Routino travel time reference data for the patient "+
             "home LSOA and the provider site postcode, showing the mean "+
             "travel time for each ICB. "+
             "Providers showing had at least 50 PPCI spells in the reference year.")
@@ -790,4 +790,5 @@ st.write("We observe that Kent and Medway ICB ranks 36 out of 42 for PPCI travel
 
 
 end_full = time.time()
+
 # st.write('Total time to run '+str(round(end_full - start_full,1)) + ' seconds')
