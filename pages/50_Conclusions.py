@@ -723,8 +723,6 @@ summary_table_df = get_summary_table(km_prov_gdf, km_all_journeys_df, sites_orig
 
 st.title('Conclusions')
 
-#st.write(summary_table_df)
-
 metric = st.radio('Choose a travel distance/time metric to see the corresponding '+
                     'optimal configuration',
                     ('Impact on median travel time',
@@ -855,7 +853,7 @@ if site_count == 'Two' :
         site_name_1 = dict_sitecode_sitename[site_code_1]
         new_value = summary_sorted_df['Proportion_spells_under_natl_median'].iloc[0]
         st.write(f'The optimal configuration with {site_count.lower()} additional sites '+
-                 f'for the {metric} is {site_name} and {site_name_1}, with a new value of {100*new_value:.1f}%')
+                 f'for the {metric} is {site_name_0} and {site_name_1}, with a new value of {100*new_value:.1f}%')
         
     if metric == 'New mean travel time':
         
@@ -866,7 +864,7 @@ if site_count == 'Two' :
         site_name_1 = dict_sitecode_sitename[site_code_1]
         new_value = summary_sorted_df['New_mean_time'].iloc[0]
         st.write(f'The optimal configuration with {site_count.lower()} additional sites '+
-                 f'for the {metric} is {site_name} and {site_name_1}, with a new value of {new_value:.1f} minutes')
+                 f'for the {metric} is {site_name_0} and {site_name_1}, with a new value of {new_value:.1f} minutes')
     
     if metric == 'Total distance reduction':
         
@@ -877,7 +875,7 @@ if site_count == 'Two' :
         site_name_1 = dict_sitecode_sitename[site_code_1]
         new_value = summary_sorted_df['New_mean_time'].iloc[0]
         st.write(f'The optimal configuration with {site_count.lower()} additional sites '+
-                 f'for the {metric} is {site_name} and {site_name_1}, with a new value of {new_value:.0f} km')
+                 f'for the {metric} is {site_name_0} and {site_name_1}, with a new value of {new_value:.0f} km')
 
     if metric == 'New maximum travel time':
         
@@ -888,7 +886,7 @@ if site_count == 'Two' :
         site_name_1 = dict_sitecode_sitename[site_code_1]
         new_value = summary_sorted_df['New_mean_time'].iloc[0]
         st.write(f'The optimal configuration with {site_count.lower()} additional sites '+
-                 f'for the {metric} is {site_name} and {site_name_1}, with a new value of {new_value:.0f} minutes')
+                 f'for the {metric} is {site_name_0} and {site_name_1}, with a new value of {new_value:.0f} minutes')
     
     # Plot kde plot for this selected set of sites
     f = kde_plot(km_all_journeys_df, sites_orig, [site_code_0, site_code_1], nat_median)
@@ -907,4 +905,5 @@ if site_count == 'Two' :
     fig, ax = f
     st.pyplot(fig)
     
+
 
