@@ -523,7 +523,7 @@ def plot_lsoa_time_threshold_gdf(km_lsoa_gdf, sites_orig, sites_new, threshold):
 
 # Function to return KM activity from national actuals
 # Input is the national actuals file, and the national Routino output on the actuals
-#st.cache_data()
+st.cache_data()
 def get_km_actuals_time_dist_df(filename_activity, filename_routino):
     # Create df for KM actuals with only from and to columns
     activity_df = pd.read_csv(filename_activity)
@@ -792,5 +792,6 @@ st.write("We observe that Kent and Medway ICB ranks 36 out of 42 for PPCI travel
 end_full = time.time()
 
 # st.write('Total time to run '+str(round(end_full - start_full,1)) + ' seconds')
+
 
 
