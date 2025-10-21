@@ -15,8 +15,7 @@ st.markdown("#### A comparison of possible configurations of sites offering "+
 
 st.markdown('This is an update of earlier work based on the [2022/23 activity](https://kmppci.streamlit.app/) ')
 
-#st.markdown('Note that for this update, the travel times are taken from an NCDR reference table which typically shows greater '+
-#            'distances and times than we saw using Routino for the 2022/23 data ')
+st.markdown('Please use the sidebar on the left to navigate')
 
 with st.expander('Resources used:',
                  expanded=False) :
@@ -37,4 +36,5 @@ with st.expander('Resources used:',
             seaborn==0.11.2
             streamlit==1.31.1
             """)
+
 
