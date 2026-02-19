@@ -924,5 +924,8 @@ st.dataframe(activity_table)
 for sentence in sentences:
     st.markdown(f'* {sentence}')
 
+f = plot_lsoa_times_gdf(km_lsoa_gdf, sites_orig, site_code_list, nat_median)
+fig, ax = f
+st.pyplot(fig)
 
 
